@@ -7,10 +7,20 @@ def get_book_text(book):
     return book_content
 
 def main():
-    words_count = number_of_words(get_book_text("books/frankenstein.txt"))
+    word_count = number_of_words(get_book_text("books/frankenstein.txt"))
     character_count = number_of_characters(get_book_text("books/frankenstein.txt"))
     sorted_count = character_count_sorted(character_count)
-    print(f"{words_count} words found in the document")
-    print(sorted_count)
+
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for item in sorted_count:
+        if item["char"].isalpha() == True:
+            print(f"{item["char"]}: {item["num"]}")
+    print("============= END ===============")
+
+#sorted_list.sort(reverse=True, key=lambda x: x["num"])
 
 main()
