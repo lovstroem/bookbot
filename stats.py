@@ -16,3 +16,12 @@ def number_of_characters(text):
         else:
             character_count[character] = 1
     return character_count
+
+def character_count_sorted(character_count_dict):
+    sorted_list = []
+    for character in character_count_dict:
+        count = character_count_dict[character]
+        new_character_count = {"char": character, "num": count}
+        sorted_list.append(new_character_count)
+    sorted_list.sort(reverse=True, key=lambda x: x["num"])
+    return sorted_list
